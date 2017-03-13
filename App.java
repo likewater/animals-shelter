@@ -1,5 +1,8 @@
+import java.io.Console;
+
 public class App {
   public static void main(String[] args) {
+    Console myConsole = System.console();
 
     Animal buddy = new Animal();
     buddy.mAge = 12;
@@ -20,19 +23,24 @@ public class App {
     cloe.mQualities = new String[] {"cute", "fluffy", "playful"};
 
     Animal[] allAnimals = {buddy, tomas, cloe};
+    System.out.println("What is the max age?");
+    String stringDesiredMaxAge = myConsole.readLine();
+    int desiredMaxAge = Integer.parseInt(stringDesiredMaxAge);
 
 
-    System.out.println("All animals available for adoption:");
 
-    for ( Animal individualAnimal : allAnimals) {
-      System.out.println("_______________");
-      System.out.println(individualAnimal.mAge + " years old");
-      System.out.println(individualAnimal.mName);
-      System.out.println(individualAnimal.mSpecies);
-       System.out.println(individualAnimal.mQualities[0]+ ", " + individualAnimal.mQualities[1]+ ", " + individualAnimal.mQualities[2]);
+      System.out.println("These are all the animals that fit your age range");
+      for ( Animal individualAnimal : allAnimals) {
+        if (individualAnimal.isBiter(maxAge)){
+        System.out.println("_______________");
+        System.out.println(individualAnimal.mAge + " years old");
+        System.out.println(individualAnimal.mName);
+        System.out.println(individualAnimal.mSpecies);
+         System.out.println(individualAnimal.mQualities[0]+ ", " + individualAnimal.mQualities[1]+ ", " + individualAnimal.mQualities[2]);
+      };
     };
-
   }
+
 
 
 }
