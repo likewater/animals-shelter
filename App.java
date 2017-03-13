@@ -4,7 +4,7 @@ public class App {
   public static void main(String[] args) {
     Console myConsole = System.console();
 
-    Animal buddy = new Animal(12, "buddy", "Dog - Sheepdog", new String[] {"sleepy", "old", "hairy"}, true);
+    Animal buddy = new Animal(12, "buddy", "Dog - Sheepdog", new String[] {"sleepy", "old", "hairy"}, false);
 
     Animal tomas = new Animal(44, "Tomas", "Parrot - African Grey", new String[] {"loud", "friendly", "smart"}, true);
 

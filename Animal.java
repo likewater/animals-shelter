@@ -18,6 +18,10 @@ public class Animal {
     return (mAge < maxAge);
   }
   public boolean adoptAll( boolean mAdopted) {
-    return !mAdopted;
+    if (mAdopted == true) {
+      return !mAdopted;
+    } else {
+      return mAdopted;
+    }
   }
 }
