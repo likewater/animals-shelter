@@ -4,23 +4,11 @@ public class App {
   public static void main(String[] args) {
     Console myConsole = System.console();
 
-    Animal buddy = new Animal();
-    buddy.mAge = 12;
-    buddy.mName = "Buddy";
-    buddy.mSpecies = "Dog - Sheepdog";
-    buddy.mQualities = new String[] {"sleepy", "old", "hairy"};
+    Animal buddy = new Animal(12, "buddy", "Dog - Sheepdog", new String[] {"sleepy", "old", "hairy"}, true);
 
-    Animal tomas = new Animal();
-    tomas.mAge = 44;
-    tomas.mName = "Tomas";
-    tomas.mSpecies = "Parrot - African Grey";
-    tomas.mQualities = new String[] {"loud", "friendly", "smart"};
-    //
-    Animal cloe = new Animal();
-    cloe.mAge = 1;
-    cloe.mName = "Cloe the Clawer";
-    cloe.mSpecies = "Cat - Domestic Long Hair";
-    cloe.mQualities = new String[] {"cute", "fluffy", "playful"};
+    Animal tomas = new Animal(44, "Tomas", "Parrot - African Grey", new String[] {"loud", "friendly", "smart"}, true);
+
+    Animal cloe = new Animal(1, "Cloe the Clawer", "Cat - Domestic Long Hair", new String[] {"cute", "fluffy", "playful"}, true);
 
     Animal[] allAnimals = {buddy, tomas, cloe};
     System.out.println("What is the max age?");
@@ -28,17 +16,36 @@ public class App {
     int desiredMaxAge = Integer.parseInt(stringDesiredMaxAge);
 
 
+    System.out.println("These are all the animals that fit your age range");
 
-      System.out.println("These are all the animals that fit your age range");
+
+    for ( Animal individualAnimal : allAnimals) {
+      if (individualAnimal.youngEnough(desiredMaxAge)){
+      System.out.println("_______________");
+      System.out.println(individualAnimal.mName);
+      System.out.println(individualAnimal.mAge + " years old");
+      System.out.println(individualAnimal.mSpecies);
+       System.out.println(individualAnimal.mQualities[0]+ ", " + individualAnimal.mQualities[1]+ ", " + individualAnimal.mQualities[2]);
+       System.out.println("Available for Adoption: "+individualAnimal.mAdopted);
+    };
+  };
+    System.out.println("Do you want to Adopt them all? enter true or false.");
+    String stringAdoptAll = myConsole.readLine();
+    boolean adoptAll = java.lang.Boolean.parseBoolean(stringAdoptAll);
+    if (adoptAll == true) {
+
       for ( Animal individualAnimal : allAnimals) {
-        if (individualAnimal.youngEnough(desiredMaxAge)){
+        individualAnimal.mAdopted = individualAnimal.adoptAll(individualAnimal.mAdopted);
         System.out.println("_______________");
+        System.out.println("Thank you for adopting "+individualAnimal.mName);
         System.out.println(individualAnimal.mAge + " years old");
-        System.out.println(individualAnimal.mName);
         System.out.println(individualAnimal.mSpecies);
          System.out.println(individualAnimal.mQualities[0]+ ", " + individualAnimal.mQualities[1]+ ", " + individualAnimal.mQualities[2]);
-      };
+         System.out.println("Available for Adoption: "+individualAnimal.mAdopted);
     };
+
+    }
+
   }
 
 
