@@ -31,7 +31,7 @@ public class App {
 
       System.out.println("These are all the animals that fit your age range");
       for ( Animal individualAnimal : allAnimals) {
-        if (individualAnimal.isBiter(maxAge)){
+        if (individualAnimal.youngEnough(desiredMaxAge)){
         System.out.println("_______________");
         System.out.println(individualAnimal.mAge + " years old");
         System.out.println(individualAnimal.mName);

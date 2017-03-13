@@ -5,7 +5,7 @@ public class Animal {
   public String[] mQualities;
 
 
-  public boolean isBiter(int maxAge)  {
+  public boolean youngEnough(int maxAge)  {
     return (mAge < maxAge);
   }
 }
